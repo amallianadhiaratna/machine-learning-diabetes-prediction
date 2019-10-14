@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Buddies</title>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/assets/font-awesome/css/font-awesome.min.css">
+		    <link rel="stylesheet" href="/static/assets/css/form-elements.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+        <link rel="stylesheet" type="/static/assets/bootstrap/css/bootstrap.css">
+      <style>
+        body{
+          background-image:url("https://ryanmartinproductions.com/image/237131-full_67-white-background-wallpapers-on-wallpaperplay.jpg");
+          background-size: cover;
+        }
+      </style>
+
+</head>
+<body> 
+
+<div>
+<nav class="navbar navbar-inverse" style="background-color: #4c0a91">
+  <div class="container-fluid" id="navigationBar">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><img src="https://image.flaticon.com/icons/png/512/128/128703.png" width="30" height="30">Diabetes Buddies</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="predict">Home</a></li>
+      <li id="info"><a href="info">Info</a></li>
+      <li id="diabetes_tracker"><a href="diabetes_tracker">Diabetes Tracker</a></li>
+      <li id="signout"><a href="signout">Sign Out</a></li>
+      
+    </ul>
+</nav>
+</div>
+<div class="jumbotron text-center"style="background-color: #d7b9eb">
+  <h2><strong>Welcome to Diabetes Prediction {{user_active.capitalize()}} !</strong></h2>
+</div>
+      <div class="price-box" style="background-color:#d3ebe6">
+
+        <form class="form-horizontal form-pricing"  method="POST" action="http://localhost:5000/predict" >
+            <div class="form-group row">
+              <label class="col-sm-6 col-form-label" for='Pregnancies'>Pregnancies:</label>
+              <div class="col-sm-6">
+              <input class="form-control pull-right" type="number" name="Pregnancies" id="Pregnancies" value="5"></div>
+            </div>
+            <br>
+            <div class="form-group row">
+              <label class="col-sm-6 col-form-label" for='Glucose'>Glucose</label>
+              <div class="col-sm-6">
+              <input class="form-control pull-right" type="number" name="Glucose" id="Glucose" value="100"></div>
+            </div>
+            <br>
+            <div class="form-group row">
+              <label class="col-sm-6 col-form-label" for='BloodPressure'>Blood Pressure (diastolic) mm Hg:</label>
+              <div class="col-sm-6">
+              <input class="form-control pull-right" type="number" name="BloodPressure" id="BloodPressure" value="10"></div>
+            </div>
+            <br>
+            <div class="form-group row">
+              <label class="col-sm-6 col-form-label" for='SkinThickness'>Skin Thickness mm:</label>
+              <div class="col-sm-6">
+              <input class="form-control pull-right" type="number" name="SkinThickness" id="SkinThickness" value="0"></div>
+            </div>
+            <br>
+            <div class="form-group row">
+              <label class="col-sm-6 col-form-label" for='Insulin'>Insulin you are prescribed (mu U/ml):</label>
+              <div class="col-sm-6">
+              <input class="form-control pull-right" type="number" name="Insulin" id="Insulin" value="3"></div>
+            </div>
+            <br>
+            <div class="form-group row">
+              <label class="col-sm-6 col-form-label" for='BMI'>BMI (weight in kg/(height in m)^2):</label>
+              <div class="col-sm-6">
+              <input class="form-control pull-right" type="number" name="BMI" id="BMI" value="2"></div>
+            </div>
+            <br>
+            <div class="form-group row">
+              <label class="col-sm-6 col-form-label" for='DiabetesPedigreeFunction'>Diabetes Pedigree Function:</label>
+              <div class="col-sm-6">
+              <input class="form-control pull-right" type="number" name="DiabetesPedigreeFunction" id="DiabetesPedigreeFunction" value="10"></div>
+            </div>
+            <br>
+            <div class="form-group row">
+              <label class="col-sm-6 col-form-label" for='Age'>Age (years): </label>
+              <div class="col-sm-6">
+              <input class="form-control pull-right" type="number" name="Age" id="Age" value="50">
+            </div>
+            <br><br>
+            {% if result %}
+            <div class= "alert alert-warning" id="result_div">
+              <h4> <strong>Result : {{ result }}</strong> </h4>
+            </div>
+            {% endif %}
+          </div>
+      <div class="col-sm-12">
+        <input type='submit' value='Predict' class="btn btn-primary pull-right" >
+        <i class="fas fa-paper-plane"></i>
+        </input>
+      </div>
+    </div>
+  </form>
+      <a href="#" id="printPageButton" onclick="window.print();return false;" class="btn btn-success btn-lg">
+        <span class="glyphicon glyphicon-print"></span> 
+      </a>
+    <script src="/static/assets/js/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="/static/js/rangeslider.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/exercises.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-1.10.2.js"
+      integrity="sha256-it5nQKHTz+34HijZJQkpNBIHsjpV8b6QzMJs9tmOBSo="
+      crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"
+      integrity="sha256-tp8VZ4Y9dg702r7D6ynzSavKSwB9zjariSZ4Snurvmw="
+      crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"
+      integrity="sha256-oTyWrNiP6Qftu4vs2g0RPCKr3g1a6QTlITNgoebxRc4="
+      crossorigin="anonymous"></script>
+
+</body>
+</html>

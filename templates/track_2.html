@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Buddies</title>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/assets/font-awesome/css/font-awesome.min.css">
+		    <link rel="stylesheet" href="/static/assets/css/form-elements.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+        <link rel="stylesheet" href="print.css" type="text/css" media="print">
+        <style>
+            body{
+              background-image:url("https://ryanmartinproductions.com/image/237131-full_67-white-background-wallpapers-on-wallpaperplay.jpg");
+              background-size: cover;
+            }
+        </style>
+</head>
+<body>
+
+<div>
+<nav class="navbar navbar-inverse" style="background-color: #4c0a91">
+  <div class="container-fluid" id="navigationBar">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><img src="https://image.flaticon.com/icons/png/512/128/128703.png" width="30" height="30">Diabetes Buddies</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li id="predict"><a href="predict">Home</a></li>
+      <li id="info"><a href="info">Info</a></li>
+      <li class="active" id="diabetes_tracker"><a href="diabetes_tracker">Diabetes Tracker</a></li>
+      <li id="signout"><a href="signout">Sign Out</a></li>
+    </ul>
+</nav>
+</div>
+    <div class="container">
+        <div class="container">
+            <div class="jumbotron"style="background-color: #d7b9eb">
+              <h2><strong>Diabetes Tracker</strong></h2>      
+              <!-- <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p> -->
+            </div>      
+        </div>
+      <!-- <div class="price-box"style="background-color:#d3ebe6"> -->
+        <div class="container">
+          <h2>Blood Sugar</h2>        
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#bloodsugar">Blood Sugar</a></li>
+            <!-- <li><a data-toggle="tab" href="#medication">Medication</a></li> -->
+            <li><a data-toggle="tab" href="#statistics">Statistics</a></li>
+          </ul>
+        
+          <div class="tab-content">
+            <div id="bloodsugar" class="tab-pane fade in active">
+              <h3>Blood Sugar</h3>
+              <form class="form-horizontal form-pricing "  method="POST" action="http://localhost:5000/diabetes_tracker" >
+                <div class="form-group row">
+                <label for='sugar'>Sugar:
+                    <input class="form-control pull-right" type="number" name="sugar" id="sugar">
+                </label>
+                </div>
+                <br>
+                <div class="form-group row">
+                <label for='measured'>Measured at:
+                    <select class="form-control pull-right" name="measured" id="measured">
+                        <option value="Before Breakfast">Before Breakfast</option>
+                        <option value="After Breakfast">After Breakfast</option>
+                        <option value="Before Lunch">Before Lunch</option>
+                        <option value="After Lunch">After Lunch</option>
+                        <option value="Before Dinner">Before Dinner</option>
+                        <option value="After Dinner">After Dinner</option>
+                        <option value="Before Sleep">Before Sleep</option>
+                        <option value="After Sleep">After Sleep</option>
+                        <option value="Fasting">Fasting</option>
+                        <!-- <option selected hidden></option> -->
+                    </select>
+                </label>
+                </div>
+                <br>
+                <div class="form-group row">
+                <label for='date'>Date: 
+                    <input class="form-control pull-right" type="date" name="date">
+                </label>
+                </div>
+                <br>
+                <div class="form-group row">
+                <label for='time'>Time:
+                    <input class="form-control pull-right" type="time" name="time" id="time">
+                </label>
+                </div>
+                <br>
+                <div class="form-group row">
+                <label for='mood'>Mood:
+                    <select class="form-control pull-right" name="mood" id="mood">
+                        <option value="0">&#128560</option>
+                        <option value="1">&#128577</option>
+                        <option value="2">&#128528</option>
+                        <option value="3">&#128578</option>
+                        <option value="4">&#128512</option>
+                        <!-- <option selected hidden></option> -->
+                    </select>
+                </label>
+                </div>
+                <br>
+                <div class="col-sm-12">
+                  <input type='submit' value='Submit' class="btn btn-primary">
+                  <i class="fas fa-paper-plane"></i>
+                  </input>
+                </div>
+                {% if result %}
+                <div class="alert alert-warning ">
+                  <strong>{{result}}</strong>
+                </div>
+                {% endif %}
+                </form>
+            </div>
+            <div id="statistics" class="tab-pane fade">
+              <center><h3>{{user_active.capitalize()}}'s blood sugar stat</h3></center>     
+                <center><div id='plotku'></div></center>
+            </div>
+          </div>
+        </div>
+            <!-- <div class="col-sm-12">
+                <input type='submit' value='Predict' class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i>
+                </input>
+              <!-- <input type="submit" class="btn btn-primary btn-lg btn-block" id="submit123" value='Proceed'><span class="glyphicon glyphicon-chevron-right pull-right proceed-right" style="padding-right: 10px;"></span></input> -->
+            </div> 
+      </div>
+    </div>
+    <script src="/static/assets/js/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="/static/js/rangeslider.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/exercises.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-1.10.2.js"
+      integrity="sha256-it5nQKHTz+34HijZJQkpNBIHsjpV8b6QzMJs9tmOBSo="
+      crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"
+      integrity="sha256-tp8VZ4Y9dg702r7D6ynzSavKSwB9zjariSZ4Snurvmw="
+      crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"
+      integrity="sha256-oTyWrNiP6Qftu4vs2g0RPCKr3g1a6QTlITNgoebxRc4="
+      crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.11.0/d3.js" integrity="sha256-cWwi30eyRTyVagkLLAwXp92jxARPpGH3u+5Vr0UJtGQ=" crossorigin="anonymous"></script>
+      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      <script>
+          var z={{ x | safe }}
+          Plotly.plot('plotku',z,{})
+      </script>
+</body>
+</html>

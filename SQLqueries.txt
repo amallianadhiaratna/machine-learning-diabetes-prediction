@@ -1,0 +1,14 @@
+CREATE TABLE usercred(username VARCHAR(20), password VARCHAR(200));
+create table history (
+Nama varchar(100) not null,
+Pregnancies int(11) not null,
+Glucose int(11) not null,
+BloodPressure int(11) not null,
+SkinThickness int(11),
+Insulin int(11) not null,
+BMI int(11) not null,
+DiabetesPedigreeFunction int(11), 
+Age int(11) not null,
+Outcome int(11) not null,
+Created_at timestamp not null default current_timestamp
+);

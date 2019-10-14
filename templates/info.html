@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Buddies</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/assets/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/static/assets/css/form-elements.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <style>
+        body{
+          background-image:url("https://ryanmartinproductions.com/image/237131-full_67-white-background-wallpapers-on-wallpaperplay.jpg");
+          background-size: cover;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse" style="background-color: #4c0a91">
+  <div class="container-fluid" id="navigationBar">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><img src="https://image.flaticon.com/icons/png/512/128/128703.png" width="30" height="30">Diabetes Buddies</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="predict">Home</a></li>
+      <li class="active" id="info"><a href="#">Info</a></li>
+      <li id="diabetes_tracker"><a href="diabetes_tracker">Diabetes Tracker</a></li>
+      <li id="signout"><a href="signout">Sign Out</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="jumbotron text-center"style="background-color: #d7b9eb">
+  <h1>Number of death by risk factors</h1>
+  <p>Diabetes as Leading Cause of Death</p> 
+</div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <!-- <h3>Column 1</h3> -->
+      <p align="justify">Diabetes, is a group of metabolic disorders in which there are high blood sugar levels over a prolonged period. 
+        Symptoms of high blood sugar include frequent urination, increased thirst, and increased hunger. If left untreated, 
+        diabetes can cause many complications. Acute complications can include diabetic ketoacidosis, hyperosmolar hyperglycemic state, or death. 
+        Serious long-term complications include cardiovascular disease, stroke, chronic kidney disease, foot ulcers, and damage to the eyes.</p>
+    </div>
+    <div class="col-sm-8">
+      <h5>Number of death by risk factors</h5>        
+      <div id='plotku'></div>
+    </div>
+  </div>
+</div>
+
+
+
+    <script src="/static/assets/js/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+   <!-- <script src="/static/js/main.js"></script> -->
+    <script src="/static/js/exercises.js"></script>
+        <script
+      src="https://code.jquery.com/jquery-1.10.2.js"
+      integrity="sha256-it5nQKHTz+34HijZJQkpNBIHsjpV8b6QzMJs9tmOBSo="
+      crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"
+      integrity="sha256-tp8VZ4Y9dg702r7D6ynzSavKSwB9zjariSZ4Snurvmw="
+      crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"
+      integrity="sha256-oTyWrNiP6Qftu4vs2g0RPCKr3g1a6QTlITNgoebxRc4="
+      crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.11.0/d3.js" integrity="sha256-cWwi30eyRTyVagkLLAwXp92jxARPpGH3u+5Vr0UJtGQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        var z={{ x | safe }}
+        Plotly.plot('plotku',z,{})
+    </script>
+</body>
+</html>
