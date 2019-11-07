@@ -4,7 +4,7 @@ A genetic predisposition allowed this group to survive normally to a diet poor o
 together with a decline in physical activity, made them develop the highest prevalence of type 2 diabetes 
 and for this reason they have been subject of many studies.
 
-The dataset includes data from 1232 women with 8 characteristics, in particular:
+The dataset includes data from 768 women with 8 characteristics, in particular:
 * Number of times pregnant
 * Plasma glucose concentration a 2 hours in an oral glucose tolerance test*
 * Diastolic blood pressure (mm Hg)
